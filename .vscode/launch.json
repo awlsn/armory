@@ -1,0 +1,749 @@
+[
+    {
+        "index": "Kethryes Grace BAS",
+        "upgradeIndex": "Kethryes Grace EXC",
+        "root": true,
+        "name": "Kethryes' Grace",
+        "imageFile": "invam1_8.png",
+        "item": "Stag Bow",
+        "itemType": "Amazon Bows",
+        "class": "Amazon",
+        "category": "Amazon Bows",
+        "subCategories": [
+            "Amazon Bow",
+            "Bow",
+            "Missile Weapon",
+            "Weapon",
+            "Amazon Item",
+            "Class Specific"
+        ],
+        "tier": "Normal",
+        "ilvl": "21",
+        "lvlreq": "17",
+        "version": "100",
+        "baseProps": [
+            [
+                "white",
+                "Two-Hand Damage: ",
+                "blue",
+                "(32-36) To (54-61)"
+            ],
+            [
+                "white",
+                "(Amazon Only)"
+            ],
+            [
+                "white",
+                "Required Dexterity: 45 (2x)"
+            ],
+            [
+                "white",
+                "Required Strength: 30"
+            ],
+            [
+                "white",
+                "Required Level: 17"
+            ],
+            [
+                "white",
+                "Item Level: 21"
+            ],
+            [
+                "white",
+                "Range: 1"
+            ],
+            [
+                "white",
+                "Base Weapon Speed: [-15]"
+            ]
+        ],
+        "props": [
+            [
+                "blue",
+                "5% Chance to gain 4 seconds of Grace on kill"
+            ],
+            [
+                "blue",
+                "+10% Increased Attack Speed"
+            ],
+            [
+                "blue",
+                "+(60 - 80)% Enhanced Damage"
+            ],
+            [
+                "blue",
+                "0.19% Piercing Attack [based on Dexterity]"
+            ],
+            [
+                "gray",
+                "This item can be upgraded with 1 Lesser Diviner's Orb(s) ",
+                "blue",
+                ""
+            ]
+        ]
+    },
+    {
+        "index": "Lycanders Aim BAS",
+        "upgradeIndex": "Lycanders Aim EXC",
+        "root": true,
+        "name": "Lycander's Aim",
+        "imageFile": "invam2_8.png",
+        "item": "Reflex Bow",
+        "itemType": "Amazon Bows",
+        "class": "Amazon",
+        "category": "Amazon Bows",
+        "subCategories": [
+            "Amazon Bow",
+            "Bow",
+            "Missile Weapon",
+            "Weapon",
+            "Amazon Item",
+            "Class Specific"
+        ],
+        "tier": "Normal",
+        "ilvl": "24",
+        "lvlreq": "21",
+        "version": "100",
+        "baseProps": [
+            [
+                "white",
+                "Two-Hand Damage: ",
+                "blue",
+                "50 To 106"
+            ],
+            [
+                "white",
+                "(Amazon Only)"
+            ],
+            [
+                "white",
+                "Required Dexterity: 60 (2x)"
+            ],
+            [
+                "white",
+                "Required Strength: 35"
+            ],
+            [
+                "white",
+                "Required Level: 21"
+            ],
+            [
+                "white",
+                "Item Level: 24"
+            ],
+            [
+                "white",
+                "Range: 1"
+            ],
+            [
+                "white",
+                "Base Weapon Speed: [15]"
+            ]
+        ],
+        "props": [
+            [
+                "blue",
+                "+1 to Amazon Skill Levels"
+            ],
+            [
+                "blue",
+                "+(10 - 15)% Increased Attack Speed"
+            ],
+            [
+                "blue",
+                "+100% Enhanced Damage"
+            ],
+            [
+                "blue",
+                "+(100 - 150) to Attack Rating"
+            ],
+            [
+                "blue",
+                "+10 to all Attributes"
+            ],
+            [
+                "gray",
+                "This item can be upgraded with 1 Lesser Diviner's Orb(s) ",
+                "blue",
+                ""
+            ]
+        ]
+    },
+    {
+        "index": "Sunir Tempest EXC",
+        "upgradeIndex": "Sunir Tempest ELI",
+        "root": true,
+        "name": "S'unir Tempest",
+        "imageFile": "invam1_8.png",
+        "item": "Ashwood Bow",
+        "itemType": "Amazon Bows",
+        "class": "Amazon",
+        "category": "Amazon Bows",
+        "subCategories": [
+            "Amazon Bow",
+            "Bow",
+            "Missile Weapon",
+            "Weapon",
+            "Amazon Item",
+            "Class Specific"
+        ],
+        "tier": "Exceptional",
+        "ilvl": "51",
+        "lvlreq": "41",
+        "version": "100",
+        "baseProps": [
+            [
+                "white",
+                "Two-Hand Damage: 36 To 64"
+            ],
+            [
+                "white",
+                "(Amazon Only)"
+            ],
+            [
+                "white",
+                "Required Dexterity: 77 (2x)"
+            ],
+            [
+                "white",
+                "Required Strength: 56"
+            ],
+            [
+                "white",
+                "Required Level: 41"
+            ],
+            [
+                "white",
+                "Item Level: 51"
+            ],
+            [
+                "white",
+                "Range: 1"
+            ],
+            [
+                "white",
+                "Base Weapon Speed: [-15]"
+            ]
+        ],
+        "props": [
+            [
+                "blue",
+                "+35% Increased Attack Speed"
+            ],
+            [
+                "blue",
+                "Adds 1-300 Lightning Damage"
+            ],
+            [
+                "blue",
+                "Adds 100-200 Cold Damage"
+            ],
+            [
+                "blue",
+                "-(10 - 15)% Enemy Elemental Resistances"
+            ],
+            [
+                "gray",
+                "This item can be upgraded with 6 Lesser Diviner's Orb(s) ",
+                "blue",
+                ""
+            ]
+        ]
+    },
+    {
+        "index": "Kethryes Grace EXC",
+        "upgradeIndex": "Kethryes Grace ELI",
+        "root": false,
+        "name": "Kethryes' Peace",
+        "imageFile": "invam1_8.png",
+        "item": "Ashwood Bow",
+        "itemType": "Amazon Bows",
+        "class": "Amazon",
+        "category": "Amazon Bows",
+        "subCategories": [
+            "Amazon Bow",
+            "Bow",
+            "Missile Weapon",
+            "Weapon",
+            "Amazon Item",
+            "Class Specific"
+        ],
+        "tier": "Exceptional",
+        "ilvl": "99",
+        "lvlreq": "36",
+        "version": "100",
+        "baseProps": [
+            [
+                "white",
+                "Two-Hand Damage: ",
+                "blue",
+                "(79-93) To (140-166)"
+            ],
+            [
+                "white",
+                "(Amazon Only)"
+            ],
+            [
+                "white",
+                "Required Dexterity: 77 (2x)"
+            ],
+            [
+                "white",
+                "Required Strength: 56"
+            ],
+            [
+                "white",
+                "Required Level: 36"
+            ],
+            [
+                "white",
+                "Item Level: 99"
+            ],
+            [
+                "white",
+                "Range: 1"
+            ],
+            [
+                "white",
+                "Base Weapon Speed: [-15]"
+            ]
+        ],
+        "props": [
+            [
+                "blue",
+                "5% Chance to gain 4 seconds of Grace on kill"
+            ],
+            [
+                "blue",
+                "+10% Increased Attack Speed"
+            ],
+            [
+                "blue",
+                "+(120 - 160)% Enhanced Damage"
+            ],
+            [
+                "blue",
+                "0.25% Piercing Attack [based on Dexterity]"
+            ],
+            [
+                "gray",
+                "This item can be upgraded with 5 Lesser Diviner's Orb(s) ",
+                "blue",
+                ""
+            ]
+        ]
+    },
+    {
+        "index": "Lycanders Aim EXC",
+        "upgradeIndex": "Lycanders Aim ELI",
+        "root": false,
+        "name": "Lycander's Intent",
+        "imageFile": "invam2_8.png",
+        "item": "Ceremonial Bow",
+        "itemType": "Amazon Bows",
+        "class": "Amazon",
+        "category": "Amazon Bows",
+        "subCategories": [
+            "Amazon Bow",
+            "Bow",
+            "Missile Weapon",
+            "Weapon",
+            "Amazon Item",
+            "Class Specific"
+        ],
+        "tier": "Exceptional",
+        "ilvl": "99",
+        "lvlreq": "40",
+        "version": "100",
+        "baseProps": [
+            [
+                "white",
+                "Two-Hand Damage: ",
+                "blue",
+                "105 To 230"
+            ],
+            [
+                "white",
+                "(Amazon Only)"
+            ],
+            [
+                "white",
+                "Required Dexterity: 110 (2x)"
+            ],
+            [
+                "white",
+                "Required Strength: 73"
+            ],
+            [
+                "white",
+                "Required Level: 40"
+            ],
+            [
+                "white",
+                "Item Level: 99"
+            ],
+            [
+                "white",
+                "Range: 1"
+            ],
+            [
+                "white",
+                "Base Weapon Speed: [15]"
+            ]
+        ],
+        "props": [
+            [
+                "blue",
+                "+2 to Amazon Skill Levels"
+            ],
+            [
+                "blue",
+                "+(15 - 20)% Increased Attack Speed"
+            ],
+            [
+                "blue",
+                "+150% Enhanced Damage"
+            ],
+            [
+                "blue",
+                "+(200 - 300) to Attack Rating"
+            ],
+            [
+                "blue",
+                "+20 to all Attributes"
+            ],
+            [
+                "gray",
+                "This item can be upgraded with 8 Lesser Diviner's Orb(s) ",
+                "blue",
+                ""
+            ]
+        ]
+    },
+    {
+        "index": "Lady of the Hallowed ELI",
+        "upgradeIndex": "",
+        "root": true,
+        "name": "Lady of the Hallowed",
+        "imageFile": "uni-amc1eli_8.png",
+        "item": "Grand Matron Bow",
+        "itemType": "Amazon Bows",
+        "class": "Amazon",
+        "category": "Amazon Bows",
+        "subCategories": [
+            "Amazon Bow",
+            "Bow",
+            "Missile Weapon",
+            "Weapon",
+            "Amazon Item",
+            "Class Specific"
+        ],
+        "tier": "Elite",
+        "ilvl": "86",
+        "lvlreq": "74",
+        "version": "100",
+        "baseProps": [
+            [
+                "white",
+                "Two-Hand Damage: ",
+                "blue",
+                "(85-102) To (422-507)"
+            ],
+            [
+                "white",
+                "(Amazon Only)"
+            ],
+            [
+                "white",
+                "Required Dexterity: 152 (2x)"
+            ],
+            [
+                "white",
+                "Required Strength: 108"
+            ],
+            [
+                "white",
+                "Required Level: 74"
+            ],
+            [
+                "white",
+                "Item Level: 86"
+            ],
+            [
+                "white",
+                "Range: 1"
+            ],
+            [
+                "white",
+                "Base Weapon Speed: [15]"
+            ]
+        ],
+        "props": [
+            [
+                "blue",
+                "+(40 - 50)% Increased Attack Speed"
+            ],
+            [
+                "blue",
+                "+(150 - 200)% Enhanced Damage"
+            ],
+            [
+                "blue",
+                "Attacks ignore Defense rating"
+            ],
+            [
+                "blue",
+                "Adds 1000-2000 Magic Damage"
+            ]
+        ]
+    },
+    {
+        "index": "Kethryes Grace ELI",
+        "upgradeIndex": "",
+        "root": false,
+        "name": "Kethryes' Beauty",
+        "imageFile": "invam1_8.png",
+        "item": "Matriarchal Bow",
+        "itemType": "Amazon Bows",
+        "class": "Amazon",
+        "category": "Amazon Bows",
+        "subCategories": [
+            "Amazon Bow",
+            "Bow",
+            "Missile Weapon",
+            "Weapon",
+            "Amazon Item",
+            "Class Specific"
+        ],
+        "tier": "Elite",
+        "ilvl": "99",
+        "lvlreq": "66",
+        "version": "100",
+        "baseProps": [
+            [
+                "white",
+                "Two-Hand Damage: ",
+                "blue",
+                "(141-159) To (330-374)"
+            ],
+            [
+                "white",
+                "(Amazon Only)"
+            ],
+            [
+                "white",
+                "Required Dexterity: 187 (2x)"
+            ],
+            [
+                "white",
+                "Required Strength: 87"
+            ],
+            [
+                "white",
+                "Required Level: 66"
+            ],
+            [
+                "white",
+                "Item Level: 99"
+            ],
+            [
+                "white",
+                "Range: 1"
+            ],
+            [
+                "white",
+                "Base Weapon Speed: [-15]"
+            ]
+        ],
+        "props": [
+            [
+                "blue",
+                "10% Chance to gain 4 seconds of Grace on kill"
+            ],
+            [
+                "blue",
+                "+10% Increased Attack Speed"
+            ],
+            [
+                "blue",
+                "+(200 - 240)% Enhanced Damage"
+            ],
+            [
+                "blue",
+                "0.38% Piercing Attack [based on Dexterity]"
+            ]
+        ]
+    },
+    {
+        "index": "Lycanders Aim ELI",
+        "upgradeIndex": "",
+        "root": false,
+        "name": "Lycander's Direction",
+        "imageFile": "invam2_8.png",
+        "item": "Grand Matron Bow",
+        "itemType": "Amazon Bows",
+        "class": "Amazon",
+        "category": "Amazon Bows",
+        "subCategories": [
+            "Amazon Bow",
+            "Bow",
+            "Missile Weapon",
+            "Weapon",
+            "Amazon Item",
+            "Class Specific"
+        ],
+        "tier": "Elite",
+        "ilvl": "99",
+        "lvlreq": "67",
+        "version": "100",
+        "baseProps": [
+            [
+                "white",
+                "Two-Hand Damage: ",
+                "blue",
+                "119 To 591"
+            ],
+            [
+                "white",
+                "(Amazon Only)"
+            ],
+            [
+                "white",
+                "Required Dexterity: 152 (2x)"
+            ],
+            [
+                "white",
+                "Required Strength: 108"
+            ],
+            [
+                "white",
+                "Required Level: 67"
+            ],
+            [
+                "white",
+                "Item Level: 99"
+            ],
+            [
+                "white",
+                "Range: 1"
+            ],
+            [
+                "white",
+                "Base Weapon Speed: [15]"
+            ]
+        ],
+        "props": [
+            [
+                "blue",
+                "+3 to Amazon Skill Levels"
+            ],
+            [
+                "blue",
+                "+(20 - 30)% Increased Attack Speed"
+            ],
+            [
+                "blue",
+                "+250% Enhanced Damage"
+            ],
+            [
+                "blue",
+                "+(400 - 500) to Attack Rating"
+            ],
+            [
+                "blue",
+                "+30 to all Attributes"
+            ],
+            [
+                "blue",
+                "+1 to maximum number of Valkyries"
+            ]
+        ]
+    },
+    {
+        "index": "Sunir Tempest ELI",
+        "upgradeIndex": "",
+        "root": false,
+        "name": "S'unir Typhoon",
+        "imageFile": "invam1_8.png",
+        "item": "Matriarchal Bow",
+        "itemType": "Amazon Bows",
+        "class": "Amazon",
+        "category": "Amazon Bows",
+        "subCategories": [
+            "Amazon Bow",
+            "Bow",
+            "Missile Weapon",
+            "Weapon",
+            "Amazon Item",
+            "Class Specific"
+        ],
+        "tier": "Elite",
+        "ilvl": "99",
+        "lvlreq": "70",
+        "version": "100",
+        "baseProps": [
+            [
+                "white",
+                "Two-Hand Damage: 47 To 110"
+            ],
+            [
+                "white",
+                "(Amazon Only)"
+            ],
+            [
+                "white",
+                "Required Dexterity: 187 (2x)"
+            ],
+            [
+                "white",
+                "Required Strength: 87"
+            ],
+            [
+                "white",
+                "Required Level: 70"
+            ],
+            [
+                "white",
+                "Item Level: 99"
+            ],
+            [
+                "white",
+                "Range: 1"
+            ],
+            [
+                "white",
+                "Base Weapon Speed: [-15]"
+            ]
+        ],
+        "props": [
+            [
+                "blue",
+                "6% Chance to cast level 28 Twister on striking"
+            ],
+            [
+                "blue",
+                "+35% Increased Attack Speed"
+            ],
+            [
+                "blue",
+                "Adds 1-750 Lightning Damage"
+            ],
+            [
+                "blue",
+                "Adds 300-600 Cold Damage"
+            ],
+            [
+                "blue",
+                "-(15 - 20)% Enemy Elemental Resistances"
+            ],
+            [
+                "gray",
+                "Level 28 Twister (",
+                "white",
+                "2870-2899",
+                "gray",
+                ")"
+            ]
+        ]
+    },
+]
