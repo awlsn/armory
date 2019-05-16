@@ -17,29 +17,25 @@ export default ({ pageContext }) => {
     return match[0];
   };
 
-  const itemList = () => {
-    if (pageContext.uniqueItems) {
-      pageContext.uniqueItems.map((item) => {
-        // upgradeable items
-        if (item.upgradeIndex !== '' && item.root) {
-          // build an array of items in the upgrade set by getting the upgradeIndexes until it is ""
-          const items = [];
-          let thisItem = item;
+  const itemList = pageContext.uniqueItems.map((item) => {
+    // upgradeable items
+    if (item.upgradeIndex !== '' && item.root) {
+      // build an array of items in the upgrade set by getting the upgradeIndexes until it is ""
+      const items = [];
+      let thisItem = item;
 
-          while (thisItem.upgradeIndex !== '') {
-            items.push(thisItem);
-            thisItem = findUniqueItemByIndex(thisItem.upgradeIndex);
-          }
-          items.push(thisItem);
-          return <UpgradeableUniqueItem key={item.index} items={items} />;
-        }
-        // non-upgradeable items
-        if (item.upgradeIndex === '' && item.root) {
-          return <UniqueItem key={item.index} item={item} />;
-        }
-      });
+      while (thisItem.upgradeIndex !== '') {
+        items.push(thisItem);
+        thisItem = findUniqueItemByIndex(thisItem.upgradeIndex);
+      }
+      items.push(thisItem);
+      return <UpgradeableUniqueItem key={item.index} items={items} />;
     }
-  };
+    // non-upgradeable items
+    if (item.upgradeIndex === '' && item.root) {
+      return <UniqueItem key={item.index} item={item} />;
+    }
+  });
 
 
   return (
