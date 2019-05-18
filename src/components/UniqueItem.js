@@ -1,7 +1,6 @@
 import React from 'react';
 import ItemProperties from './ItemProperties';
 
-
 function UniqueItem(props) {
   const { item } = props;
   const categories = ` ${item.subCategories.toString()}, ${item.item}, ${item.category}`;

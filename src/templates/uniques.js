@@ -5,6 +5,7 @@ import UpgradeableUniqueItem from '../components/UpgradeableUniqueItem';
 import UniqueFilters from '../components/UniqueFilters';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import ArmoryHeader from '../components/ArmoryHeader';
 
 export default ({ pageContext }) => {
   const findUniqueItemByIndex = (itemIndex) => {
@@ -41,6 +42,7 @@ export default ({ pageContext }) => {
   return (
     <Layout>
       <SEO title="Diablo 2 Resurgence mod - Item Armory" keywords={['Diablo II', 'Resurgence', 'Armory']} />
+      <ArmoryHeader />
       <UniqueFilters itemFilters={pageContext.itemFilters} />
       <ul style={{ padding: 0 }}>
         {itemList}

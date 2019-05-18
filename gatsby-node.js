@@ -5,7 +5,7 @@ const setItems = require('./data/setItems.json');
 exports.createPages = async ({ actions: { createPage } }) => {
   createPage({
     path: '/armory/uniques',
-    component: await require.resolve('./src/templates/uniques.js'),
+    component: require.resolve('./src/templates/uniques.js'),
     context: { uniqueItems, itemFilters },
   });
 };
