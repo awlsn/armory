@@ -3,8 +3,8 @@ import React from 'react';
 import UniqueItem from '../components/UniqueItem';
 import UpgradeableUniqueItem from '../components/UpgradeableUniqueItem';
 import UniqueFilters from '../components/UniqueFilters';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from '../components/Layout';
+import SEO from '../components/Seo';
 import ArmoryHeader from '../components/ArmoryHeader';
 
 export default ({ pageContext }) => {

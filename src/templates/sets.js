@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import ArmoryHeader from '../components/ArmoryHeader';
 
-const ArmoryPage = () => (
+const SecondPage = () => (
   <Layout>
     <SEO title="Diablo 2 Resurgence mod - Item Armory" keywords={['Diablo II', 'Resurgence', 'Armory']} />
     <ArmoryHeader />
@@ -13,4 +13,4 @@ const ArmoryPage = () => (
   </Layout>
 );
 
-export default ArmoryPage;
+export default SecondPage;
