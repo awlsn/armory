@@ -1,7 +1,6 @@
 import React from 'react';
 import ItemProperties from './ItemProperties';
 
-
 function UpgradableUniqueItem(props) {
   const { items } = props;
 

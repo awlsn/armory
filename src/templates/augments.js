@@ -1,16 +1,22 @@
 import React from 'react';
 
+import Augment from '../components/SimpleItem';
+import AugmentFilters from '../components/GemFilters';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import ArmoryHeader from '../components/ArmoryHeader';
 
-const SecondPage = () => (
-  <Layout>
-    <SEO title="Diablo 2 Resurgence mod - Item Armory" keywords={['Diablo II', 'Resurgence', 'Armory']} />
-    <ArmoryHeader />
-    <p style={{ margin: '20px' }} className="center">Welcome to The Resurgence Armory!</p>
-    <p className="center"> Please select a category above to continue.</p>
-  </Layout>
-);
+export default ({ pageContext }) => {
+  const itemList = pageContext.augments.map(item => <Augment key={item.index} item={item} />);
 
-export default SecondPage;
+  return (
+    <Layout>
+      <SEO title="Diablo 2 Resurgence mod - Item Armory" keywords={['Diablo II', 'Resurgence', 'Armory']} />
+      <ArmoryHeader />
+      <AugmentFilters items={pageContext.affixes} />
+      <ul style={{ padding: 0 }}>
+        {itemList}
+      </ul>
+    </Layout>
+  );
+};

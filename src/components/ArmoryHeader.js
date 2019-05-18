@@ -11,7 +11,7 @@ const ArmoryHeader = () => (
                     <li><Link to="/armory/runewords">Runewords</Link></li>
                     <li><Link to="/armory/uniques">Uniques</Link></li>
                     <li><Link to="/armory/sets">Sets</Link></li>
-                    <li><Link to="/armory/charmComponents">Charm Components</Link></li>
+                    <li><Link to="/armory/charm-components">Charm Components</Link></li>
                     <li><Link to="/armory/runes">Runes</Link></li>
                     <li><Link to="/armory/gems">Gems</Link></li>
                     <li><Link to="/armory/augments">Augments</Link></li>

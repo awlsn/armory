@@ -63,9 +63,11 @@ function RunewordFilters(props) {
   return (
         <>
             <div id="armorySubNav">
-                Runewords: <button type="button" data-filter="all" onClick={setFilterType}> [Show All]</button><br />
-                By item type: <ul key="type-filters">{itemTypeFilters}</ul>
-                By Runeword: <ul key="type-filters">{itemNames}</ul>
+                Runewords: <button type="button" data-filter="all" onClick={setFilterType}> [Show All]</button>
+                <br />
+                By item type: <ul style={{ display: 'inline', paddingLeft: '10px' }} key="type-filters">{itemTypeFilters}</ul>
+                <br />
+                By Runeword: <ul style={{ display: 'inline', paddingLeft: '10px' }} key="type-filters">{itemNames}</ul>
             </div>
             <hr />
         </>

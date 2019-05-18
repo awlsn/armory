@@ -36,8 +36,8 @@ exports.createPages = async ({ actions: { createPage } }) => {
     context: { setItems, itemFilters },
   });
   createPage({
-    path: '/armory/charmComponents',
-    component: require.resolve('./src/templates/charmComponents.js'),
+    path: '/armory/charm-components',
+    component: require.resolve('./src/templates/charms.js'),
     context: { charmComponents, itemFilters },
   });
   createPage({
