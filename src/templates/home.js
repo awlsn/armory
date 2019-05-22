@@ -62,7 +62,7 @@ export default ({ pageContext }) => {
         <div className="row"><h3 className="center">Same Feel, New Challenge</h3></div>
 
         <div className="row">
-          <div className="six columns margin-right">
+          <div className="six columns">
 
             <AnimatedFeature url="//gifs.com/embed/diablo-2-resurgence-launch-trailer-mZxMzr" caption="Necromancers get additional bone spears with points into Energy" />
             <br />
