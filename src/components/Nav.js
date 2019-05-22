@@ -11,8 +11,8 @@ const Nav = () => (
         <li><a href="https://discord.gg/0cDYwWrMLIImycvz">Discord</a></li>
         <li><a href="https://www.reddit.com/r/Diablo2Resurgence">Subreddit</a></li>
         <li><a href="http://diablo2resurgence.wikia.com/wiki/Diablo2Resurgence_Wikia">Wiki</a></li>
-        <li><a href="armory">Armory</a></li>
-        <li><a href="crafting.html">Crafting</a></li>
+        <li><a href="/armory">Armory</a></li>
+        <li><a href="/crafting">Crafting</a></li>
     </ul>
 );
 

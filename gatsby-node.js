@@ -11,6 +11,11 @@ const affixes = require('./data/affixes.json');
 
 exports.createPages = async ({ actions: { createPage } }) => {
   createPage({
+    path: '/',
+    component: require.resolve('./src/templates/home.js'),
+    context: { uniqueItems, itemFilters },
+  });
+  createPage({
     path: '/armory/',
     component: require.resolve('./src/pages/armory.js'),
     context: {},

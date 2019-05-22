@@ -450,8 +450,8 @@ a.tooltip div {
     z-index:10;
     display:none; 
     padding:14px 20px;
-    margin-top:-30px;
-    margin-left:28px;
+    margin-top:0px;
+    margin-left:0px;
     min-width: 350px;
     max-width: 550px; 
     line-height: 16px;
@@ -468,7 +468,10 @@ a.tooltip:hover div span.block {
   display:block; }
 
 div#crafting_tooltips a.tooltip div {
-    margin-left: 150px;  }
+    margin-left: -50%;
+    background: rgba(143, 112, 10, 0.95); 
+    margin-top: 30px;
+  }
 
 div#crafting_tooltips a {
     display: block;
