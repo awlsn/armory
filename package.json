@@ -18,7 +18,10 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-tooltip": "^3.10.0",
+    "tether": "^1.4.6",
+    "tether-tooltip": "^1.2.0"
   },
   "devDependencies": {
     "prettier": "^1.17.0"

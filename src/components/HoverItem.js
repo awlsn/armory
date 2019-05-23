@@ -1,51 +1,71 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+
+import ReactTooltip from 'react-tooltip';
 
 const HoverItem = (props) => {
   const { item, type } = props;
 
-  // console.log(item);
-  // handle props and baseProps
-  // check if prop isArray, if it is handle it as [color,prop] (destructure it?)
-  // else assume baseProp = white prop = blue?
   if (item) {
-    const propList = item.props.map((itemPropSet, i) => (
-      <span key={i} className="item-property">
-        <div className="no-wrap diablo_blue">{itemPropSet}</div>
-      </span>
-    ),
-    );
-    if (type === 'unique') {
-      const imgUrl = `/images/items/${item.imageFile}`;
-
-      return (
-        <a href="javascript:void(0)" className="tooltip">
-
-          <img alt="" src={imgUrl} />
-          <div>
-            <span className="diablo_unique block">{item.name}<br />{item.item}</span>
-            <BaseProps item={item} />
-            <MagicProps item={item} />
-          </div>
-        </a>
+    if (item.props) {
+      const propList = item.props.map((itemPropSet, i) => (
+        <span key={i} className="item-property">
+          <div className="no-wrap diablo_blue">{itemPropSet}</div>
+        </span>
+      ),
       );
     }
+
+
+    let imgUrl = `/images/items/${item.imageFile}`;
+
     if (type === 'hardcoded') {
-      const imgUrl = `/images/${item.imageFile}`;
+      imgUrl = `/images/${item.imageFile}`;
+    }
+
+    if (type === 'simple') {
+      imgUrl = `/images/${item.imageFile}`;
 
       return (
-        <a href="javascript:void(0)" className="tooltip">
-
-          <img alt="" src={imgUrl} />
-          <div>
-            <span className={`diablo_${item.name[0]} block`}>{item.name[1]}</span>
-            <BaseProps item={item} />
-            <MagicProps item={item} />
-          </div>
-        </a>
+        <>
+          <a data-tip data-for={item.index}>
+            <img alt="" src={imgUrl} />{item.name}
+          </a>
+          <ReactTooltip id={item.index} effect="solid">
+            <div>
+              <span className="diablo_white block">{item.text}</span>
+            </div>
+          </ReactTooltip>
+        </>
       );
     }
+
+    return (
+      <>
+        <a data-tip data-for={item.index}>
+          <img alt="" src={imgUrl} />
+        </a>
+        <ReactTooltip id={item.index} effect="solid">
+          <div>
+
+            {type !== 'hardcoded'
+              && <span className="diablo_unique block">{item.name}<br />{item.item}</span>
+            }
+
+            {type === 'hardcoded'
+              && <span className={`diablo_${item.name[0]} block`}>{item.name[1]}</span>
+            }
+
+
+            {type !== 'charm'
+              && <BaseProps item={item} />
+            }
+            <MagicProps item={item} />
+          </div>
+        </ReactTooltip>
+      </>
+    );
   }
-  return '';
 };
 
 
@@ -61,10 +81,10 @@ const BaseProps = (props) => {
         ps.push({ color: itemProp[i], text: itemProp[i + 1] });
       }
       // the line is an assembly of these sets of 2
-      line = ps.map((prop, i) => <span key={i} className={`block no-wrap diablo_${prop.color}`}> {prop.text}</span>);
+      line = ps.map((prop, i) => <span key={i} className={`no-wrap diablo_${prop.color}`}> {prop.text}</span>);
     }
     return (
-      <span key={i} className="item-property">{line}</span>
+      <span key={i} className="item-property block">{line}</span>
     );
   });
   return basePropList;
@@ -82,10 +102,10 @@ const MagicProps = (props) => {
         ps.push({ color: itemProp[i], text: itemProp[i + 1] });
       }
       // the line is an assembly of these sets of 2
-      line = ps.map((prop, i) => <span key={i} className={`block no-wrap diablo_${prop.color}`}> {prop.text}</span>);
+      line = ps.map((prop, i) => <span key={i} className={`no-wrap diablo_${prop.color}`}> {prop.text}</span>);
     }
     return (
-      <span key={i} className="item-property">{line}</span>
+      <span key={i} className="item-property block">{line}</span>
     );
   });
   return magicPropList;

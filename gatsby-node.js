@@ -13,7 +13,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
   createPage({
     path: '/',
     component: require.resolve('./src/templates/home.js'),
-    context: { uniqueItems, itemFilters },
+    context: { uniqueItems, charmComponents, itemFilters },
   });
   createPage({
     path: '/armory/',

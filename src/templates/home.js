@@ -17,6 +17,12 @@ export default ({ pageContext }) => {
     }
   }
 
+  function findCharmCompByName(itemName) {
+    if (pageContext.charmComponents) {
+      return pageContext.charmComponents.filter(item => item.name === itemName)[0];
+    }
+  }
+
   function getValorsByClassName(className) {
     const endPos = className.length + 1;
     if (pageContext.uniqueItems) {
@@ -31,12 +37,12 @@ export default ({ pageContext }) => {
     document.querySelector('#crafting_cube_results').style.display = 'block';
   }
 
+
   function notAClick(e) {
     e.preventDefault();
   }
-  console.log(getValorsByClassName('Sorceress'));
-  // console.log(findUniqueItemByName("Steelrend"))
 
+  console.log(findCharmCompByName('Garnet Glyph'));
 
   return (
     <Layout>
@@ -102,6 +108,7 @@ export default ({ pageContext }) => {
                     {
                       name: ['white', 'Shaman Rod'],
                       imageFile: 'shamanrod.png',
+                      index: 'shamanrod',
                       baseProps: [
                         ['white', 'Two-Hand Damage: 81-148'],
                         ['white', 'Durability: 61 of 100'],
@@ -124,6 +131,7 @@ export default ({ pageContext }) => {
                     {
                       name: ['white', 'Superior Templar Basinet'],
                       imageFile: 'templarbasinet.png',
+                      index: 'templarbasinet',
                       baseProps: [
                         ['white', 'Defense: 88'],
                         ['white', 'Durability: 110 of 110'],
@@ -145,6 +153,7 @@ export default ({ pageContext }) => {
                     {
                       name: ['blue', 'Platinum Garnet Ring'],
                       imageFile: 'garnetring.png',
+                      index: 'garnetring',
                       baseProps: [
                         ['white', 'Required Level: 45'],
                       ],
@@ -161,7 +170,8 @@ export default ({ pageContext }) => {
                   item={
                     {
                       name: ['blue', "Golemlord's Sapphire Amulet"],
-                      imageFile: 'saphireamulet.png',
+                      imageFile: 'sapphireamulet.png',
+                      index: 'sapphireamulet',
                       baseProps: [
                         ['white', 'Required Level: 48'],
                       ],
@@ -218,52 +228,74 @@ export default ({ pageContext }) => {
           </div>
           <div className="three columns" id="crafting_tooltips">
 
-            <a alt="" href="" onClick={notAClick} className="tooltip"><img alt="" src="/images/bcrystal.gif" />
-              Blessed Crystal
-                            <div>
-                <span className="diablo_white block">
-                  The multitool of crafting. Used to create basic Crafted items, reroll magic items and sockets amongst other things.
-                </span>
-                            </div>
-            </a>
+            <HoverItem
+              item={
+                {
+                  name: 'Blessed Crystal',
+                  imageFile: 'bcrystal.gif',
+                  index: 'bcrystal',
+                  text: 'The multitool of crafting. Used to create basic Crafted items, reroll magic items and sockets amongst other things.',
+                }
+              }
+              type="simple"
+            />
 
-            <a href="" onClick={notAClick} className="tooltip"><img alt="" src="/images/rcrystal.gif" />
-              Regal Crystal
-                        <div>
-                <span className="diablo_white block">
-                  Used to create high-end Crafted items.
-                </span>
-                        </div>
-            </a>
+            <HoverItem
+              item={
+                {
+                  name: 'Regal Crystal',
+                  imageFile: 'rcrystal.gif',
+                  index: 'rcrystal',
+                  text: 'Used to create high-end Crafted items.',
+                }
+              }
+              type="simple"
+            />
+            <HoverItem
+              item={
+                {
+                  name: 'Divine Crystal',
+                  imageFile: 'dcrystal.gif',
+                  index: 'dcrystal',
+                  text: 'Used to create incredibly powerful Crafted items.',
+                }
+              }
+              type="simple"
+            />
+            <HoverItem
+              item={
+                {
+                  name: "Alchemist's Stone",
+                  imageFile: 'astone.gif',
+                  index: 'astone',
+                  text: 'Upgrades a Normal item to a random rarity.',
+                }
+              }
+              type="simple"
+            />
+            <HoverItem
+              item={
+                {
+                  name: 'Strange Cube',
+                  imageFile: 'scube.gif',
+                  index: 'scube',
+                  text: 'Adds sockets to Rare or Crafted items.',
+                }
+              }
+              type="simple"
+            />
+            <HoverItem
+              item={
+                {
+                  name: 'Chaos Prism',
+                  imageFile: 'cprism.gif',
+                  index: 'cprism',
+                  text: 'Rerolls the random properties of a Unique items.',
+                }
+              }
+              type="simple"
+            />
 
-            <a href="" onClick={notAClick} className="tooltip"><img alt="" src="/images/dcrystal.gif" />Divine Crystal
-                            <div>
-                <span className="diablo_white block">
-                  Used to create incredibly powerful Crafted items.
-                </span>
-                            </div>
-            </a>
-            <a href="" onClick={notAClick} className="tooltip"><img alt="" src="/images/astone.gif" />Alchemist&apos;s Stone
-                            <div>
-                <span className="diablo_white block">
-                  Upgrades a Normal item to a random rarity.
-                </span>
-                            </div>
-            </a>
-            <a href="" onClick={notAClick} className="tooltip"><img alt="" src="/images/scube.gif" />Strange Cube
-                            <div>
-                <span className="diablo_white block">
-                  Adds sockets to Rare or Crafted items.
-                </span>
-                            </div>
-            </a>
-            <a href="" onClick={notAClick} className="tooltip"><img alt="" src="/images/cprism.gif" />Chaos Prism
-                            <div>
-                <span className="diablo_white block">
-                  Rerolls the random properties of a Unique items.
-                </span>
-                            </div>
-            </a>
           </div>
         </div>
         <div className="row separator" />
@@ -280,119 +312,17 @@ export default ({ pageContext }) => {
               <br />
               To get an idea of how this process works, click "Transmute" in the cube to the right and watch the Charm gain a stat.
             </p>
+
             <div className="item_hover">
-              <a href="" onClick={notAClick} className="tooltip"><img src="images/glyph_garnet.png" alt="" />
-                <div>
-                  <span className="diablo_white block">
-                    Garnet Glyph
-                  </span>
-                  <span className="diablo_orange block">
-                    Charm Component
-                  </span>
-                  <span className="diablo_white block">
-                    Adds The Following Property to A Charm:
-                  </span>
-                  <span className="diablo_blue block">
-                    4-7% Fire Resistance<br />(Uses 1 Primary Stat Slot)
-                  </span>
-                </div>
-              </a>
-              <a href="" onClick={notAClick} className="tooltip"><img src="images/t2_fireres.png" alt="" />
-                <div>
-                  <span className="diablo_rare block">
-                    Ruby Glyph
-                  </span>
-                  <span className="diablo_orange block">
-                    Charm Component
-                  </span>
-                  <span className="diablo_white block">
-                    Adds The Following Property to A Charm:
-                  </span>
-                  <span className="diablo_blue block">
-                    10-13% Fire Resistance<br />(Uses 1 Primary Stat Slot)
-                  </span>
-                </div>
-              </a>
-              <a href="" onClick={notAClick} className="tooltip"><img src="images/freezingsigil.png" alt="" />
-                <div>
-                  <span className="diablo_blue block">
-                    Freezing Sigil
-                  </span>
-                  <span className="diablo_orange block">
-                    Charm Component
-                  </span>
-                  <span className="diablo_white block">
-                    Adds The Following Property to A Charm:
-                  </span>
-                  <span className="diablo_blue block">
-                    +18-24 Cold Damage<br />(Uses 1 Secondary Stat Slot)
-                  </span>
-                </div>
-              </a>
-              <a href="" onClick={notAClick} className="tooltip"><img src="images/sigil_magus.webp" alt="" />
-                <div>
-                  <span className="diablo_rare block">
-                    Magus' Sigil
-                  </span>
-                  <span className="diablo_orange block">
-                    Charm Component
-                  </span>
-                  <span className="diablo_white block">
-                    Adds The Following Property to A Charm:
-                  </span>
-                  <span className="diablo_blue block">
-                    6-8% Faster Cast Rate<br />(Uses 1 Secondary Stat Slot)
-                  </span>
-                </div>
-              </a>
-              <a href="" onClick={notAClick} className="tooltip"><img src="images/ankh_puncture.webp" alt="" />
-                <div>
-                  <span className="diablo_rare block">
-                    Ankh of Puncture
-                  </span>
-                  <span className="diablo_orange block">
-                    Charm Component
-                  </span>
-                  <span className="diablo_white block">
-                    Adds The Following Property to A Charm:
-                  </span>
-                  <span className="diablo_blue block">
-                    5% Pierce<br />(Uses 1 Tertiary Stat Slot)
-                  </span>
-                </div>
-              </a>
-              <a href="" onClick={notAClick} className="tooltip"><img src="images/voidinnoc.png" alt="" />
-                <div>
-                  <span className="diablo_unique block">
-                    Void Innoculation
-                  </span>
-                  <span className="diablo_orange block">
-                    Charm Component
-                  </span>
-                  <span className="diablo_white block">
-                    Adds The Following Property to A Charm:
-                  </span>
-                  <span className="diablo_blue block">
-                    2% Chance to Gain 10 Seconds of Empower When Struck<br />(Uses 1 Tertiary Stat Slot)
-                  </span>
-                </div>
-              </a>
-              <a href="" onClick={notAClick} className="tooltip"><img src="images/livinglava.png" alt="" />
-                <div>
-                  <span className="diablo_unique block">
-                    Living Lava
-                  </span>
-                  <span className="diablo_orange block">
-                    Charm Component
-                  </span>
-                  <span className="diablo_white block">
-                    Adds The Following Property to A Charm:
-                  </span>
-                  <span className="diablo_blue block">
-                    +1 Maximum Fire Resistance<br />(Uses 1 Tertiary Stat Slot)
-                  </span>
-                </div>
-              </a>
+
+              <HoverItem type="charm" item={findCharmCompByName('Garnet Glyph')} />
+              <HoverItem type="charm" item={findCharmCompByName('Ruby Glyph')} />
+              <HoverItem type="charm" item={findCharmCompByName('Freezing Sigil')} />
+              <HoverItem type="charm" item={findCharmCompByName("Magus' Sigil")} />
+              <HoverItem type="charm" item={findCharmCompByName('Ankh of Puncture')} />
+              <HoverItem type="charm" item={findCharmCompByName('Void Innoculation')} />
+              <HoverItem type="charm" item={findCharmCompByName('Living Lava')} />
+
             </div>
             <span className="caption">Hover over these items to see their description.</span><br />
             <p>
@@ -402,43 +332,13 @@ export default ({ pageContext }) => {
           <div className="four columns">
             <div className="horadric_cube_container">
               <div id="crafting_cube_ingredients">
-                <div className="horadric_cube_ingredients" style={{ top: '143px', left: '120px' }} alt="">
-                  <a href="#" className="tooltip"><img src="images/gojes_talisman.png" alt="" />
-                    <div>
-                      <span className="diablo_unique block">
-                        Eldritch Knowledge<br />
-                        Small Charm
-                      </span>
-                      <span className="diablo_white block">
-                        Keep in Inventory to Gain Bonus
-                      </span>
-                      <span className="diablo_blue block">
-                        Available Primary Stat Slots: 2<br />
-                        Available Secondary Stat Slots: 1<br />
-                        Available Tertiary Stat Slots: 1<br />
-                      </span>
-                    </div>
-                  </a>
+                <div className="horadric_cube_ingredients center" style={{ top: '143px', left: '120px' }} alt="">
+                  <HoverItem type="charm" item={findUniqueItemByName('Eldritch Knowledge')} />
                 </div>
 
 
-                <div className="horadric_cube_ingredients" style={{ top: '171px', left: '150px' }}>
-                  <a href="#" className="tooltip"><img src="images/sigil_gheeds_fortune.png" alt="" />
-                    <div>
-                      <span className="diablo_unique block">
-                        Gheed's Fortune<br />
-                      </span>
-                      <span className="diablo_orange block">
-                        Charm Component
-                      </span>
-                      <span className="diablo_white block">
-                        Adds The Following Property to A Charm:
-                      </span>
-                      <span className="diablo_blue block">
-                        30% Better Chance of Finding Magical Items<br />(Uses 1 Secondary Stat Slot)
-                      </span>
-                    </div>
-                  </a>
+                <div className="horadric_cube_ingredients center" style={{ top: '171px', left: '150px' }}>
+                  <HoverItem type="charm" item={findCharmCompByName("Gheed's Fortune")} />
                 </div>
 
                 <div
@@ -460,24 +360,29 @@ export default ({ pageContext }) => {
 
 
               <div id="crafting_cube_results" className="horadric_cube_ingredients" style={{ display: 'none' }}>
-                <div className="horadric_cube_ingredients" style={{ top: '143px', left: '120px' }}>
-                  <a href="#" className="tooltip"><img src="images/gojes_talisman.png" alt="" />
-                    <div>
-                      <span className="diablo_unique block">
-                        Eldritch Knowledge<br />
-                        Small Charm
-                      </span>
-                      <span className="diablo_white block">
-                        Keep in Inventory to Gain Bonus
-                      </span>
-                      <span className="diablo_blue block">
-                        30% Better Chance of Finding Magical Items<br />
-                        Available Primary Stat Slots: 2<br />
-                        Available Secondary Stat Slots: 0<br />
-                        Available Tertiary Stat Slots: 1<br />
-                      </span>
-                    </div>
-                  </a>
+                <div className="horadric_cube_ingredients center" style={{ top: '143px', left: '120px' }}>
+
+                  <HoverItem
+                    item={
+                      {
+                        name: ['gold', 'Eldritch Knowledge'],
+                        imageFile: 'gojes_talisman.png',
+                        index: 'cube-result',
+                        baseProps: [
+                          ['gold', 'Small Charm'],
+                          ['white', 'Keep in inventory to gain bonus'],
+                          ['white', 'Required level: 35'],
+                        ],
+                        props: [
+                          ['blue', '30% Better Chance of Finding Magical Items'],
+                          ['blue', 'Available Primary Stat Slots: 2'],
+                          ['blue', 'Available Secondary Stat Slots: 0'],
+                          ['blue', 'Available Tertiary Stat Slots: 1'],
+                        ],
+                      }
+                    }
+                    type="hardcoded"
+                  />
                 </div>
               </div>
             </div>
@@ -494,41 +399,47 @@ export default ({ pageContext }) => {
             <a href="http://diablo2resurgence.wikia.com/wiki/Crafting_Quality_of_Life_Items">For more information check out the Crafting Quality of Life page on the Resurgence wiki.</a>
           </div>
           <div className="three columns center">
-            <a href="" onClick={notAClick} className="tooltip" style={{ marginRight: '25px', marginLeft: '25px' }}><img src="images/vessel_bcrystal.gif" alt="" />
-              <div>
-                <span className="diablo_unique block">
-                  Horadric Vessel
-                </span>
-                <span className="diablo_blue block">
-                  Can Hold the Following Item Type:
-                </span>
-                <span className="diablo_orange block">
-                  Blessed Crystal
-                </span>
-                <span className="diablo_white block">
-                  <br /><br />
-                  Quantity: 37
-                </span>
-              </div>
-            </a>
-            <a href="" onClick={notAClick} className="tooltip" style={{ marginRight: '25px', marginLeft: '25px' }}><img src="images/catalyst.gif" alt="" />
-              <div>
-                <span className="diablo_unique block">
-                  Horadric Catalyst
-                </span>
-                <span className="diablo_blue block">
-                  Transmogrifies Runes and Gems Into Essence
-                </span>
-                <span className="diablo_white block">
-                  <br /><br />
-                  Gem Essence: 12<br />
-                  Greater Rune Essence: 5<br />
-                  Lesser Rune Essence: 359<br />
-                </span>
-              </div>
-            </a>
+            <HoverItem
+              item={
+                {
+                  name: ['gold', 'Blessed Crystal (Stack)'],
+                  imageFile: 'bcrystal_stack.png',
+                  index: 'bcrystal_stack',
+                  baseProps: [
+                    ['white', 'Count: 37'],
+                    ['orange', 'Transmogrify Reagent'],
+                  ],
+                  props: [
+                    ['white', 'Forges A Crafted Item When Transmuted'],
+                    ['white', 'With a Magic Item and a Gem'],
+                    ['white', '(Item Level Reduced By 10%)'],
+                    ['white', 'Quantity: 37'],
+                  ],
+                }
+              }
+              type="hardcoded"
+            /><br />
+            <HoverItem
+              item={
+                {
+                  name: ['gold', 'Horadric Catalyst'],
+                  imageFile: 'catalyst.gif',
+                  index: 'catalyst',
+                  baseProps: [
+                    ['blue', 'Transmogrifies Runes and Gems Into Essence'],
+                  ],
+                  props: [
+                    ['white', 'Radiant Essence: 1370'],
+                    ['white', 'Gem Essence: 12'],
+                    ['white', 'Greater Rune Essence: 5'],
+                    ['white', 'Lesser Rune Essence: 359'],
+                  ],
+                }
+              }
+              type="hardcoded"
+            />
             <span className="caption">
-              Hover over the Horadric Vessel and Catalyst for the item descriptions.
+              Hover over these items their descriptions.
             </span>
           </div>
         </div>

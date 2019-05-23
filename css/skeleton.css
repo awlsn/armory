@@ -159,7 +159,7 @@ p {
 /* Links
 â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ */
 a, button {
-  color: #baa76a; }
+  color: #baa76a; cursor: pointer; }
 a:hover, button:hover {
   color: #6E623E; }
 
@@ -443,12 +443,12 @@ ul.intro_navbar li {
 .item_hover a img {
   vertical-align: middle; }
 
-a.tooltip { outline:none; text-decoration: none; }
+a.tooltip { position: relative; outline:none; text-decoration: none; }
 a.tooltip strong {line-height:30px;}
 a.tooltip:hover {text-decoration:none;} 
 a.tooltip div {
-    z-index:10;
-    display:none; 
+    display: none;
+    z-index:10; 
     padding:14px 20px;
     margin-top:0px;
     margin-left:0px;
@@ -457,8 +457,9 @@ a.tooltip div {
     line-height: 16px;
 }
 a.tooltip:hover div{
-    display: inline; 
     position: absolute; 
+    top: 0;
+    left: 0;
     color: #afafaf;
     border: none; 
     background: rgba(10,10,10,.90); 

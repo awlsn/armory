@@ -2,7 +2,7 @@ import React from 'react';
 
 const AnimatedFeature = (props) => {
   const { url, caption } = props;
-  // return '';
+  return '';
   return (
         <>
             <style jsx>{`
