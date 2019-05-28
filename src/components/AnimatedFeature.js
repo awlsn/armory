@@ -2,11 +2,12 @@ import React from 'react';
 
 const AnimatedFeature = (props) => {
   const { url, caption } = props;
-  return '';
+  // return '';
+  // https://davidwalsh.name/responsive-iframes
   return (
         <>
             <style jsx>{`
-            /*https://davidwalsh.name/responsive-iframes*/
+            
             .iframe-container {
                 position: relative;
                 overflow: hidden;

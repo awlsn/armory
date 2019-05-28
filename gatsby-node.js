@@ -16,9 +16,18 @@ exports.createPages = async ({ actions: { createPage } }) => {
     context: { uniqueItems, charmComponents, itemFilters },
   });
   createPage({
+    path: '/search/',
+    component: require.resolve('./src/templates/search.js'),
+    context: {
+      baseItems, runewords, uniqueItems, setItems, charmComponents, runes, gems, augments, affixes,
+    },
+  });
+  createPage({
     path: '/armory/',
-    component: require.resolve('./src/pages/armory.js'),
-    context: {},
+    component: require.resolve('./src/templates/search.js'),
+    context: {
+      baseItems, runewords, uniqueItems, setItems, charmComponents, runes, gems, augments, affixes,
+    },
   });
   createPage({
     path: '/armory/bases',

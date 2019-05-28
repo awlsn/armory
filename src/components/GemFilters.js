@@ -34,12 +34,12 @@ function SetFilters(props) {
 
   // itemTypeFilters = itemTypeFilters.map((list, i) => <ul key={i}>{list}</ul>);
   return (
-        <>
-            <div id="armorySubNav">
-                Gems: <button type="button" data-filter="all" onClick={setFilterType}> [Show All]</button>
-            </div>
-            <hr />
-        </>
+    <>
+      <div id="armorySubNav">
+        Filter: <button type="button" data-filter="all" onClick={setFilterType}> [Show All]</button>
+      </div>
+      <hr />
+    </>
   );
 }
 

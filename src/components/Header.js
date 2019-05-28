@@ -16,7 +16,7 @@ const Header = () => (
       <div className="u-full-width" id="banner" />
     </div>
 
-    <div id="floating-nav-content" style={{ textAlign: 'center' }}>
+    <div id="floating-nav-content" className="center slideup">
       <div>
         <Nav />
       </div>

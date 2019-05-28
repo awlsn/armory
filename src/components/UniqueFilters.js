@@ -38,20 +38,20 @@ function UniqueFilters(props) {
 
         tierNodeList.forEach((tierNode) => {
           if (tierNode && tierNode.getAttribute('data-tier') === tier) {
-            // we hide all sinling items first for upgradeable unique sets
-            if (upgradeable) { tierNode.parentNode.childNodes.forEach((siblingNode) => { siblingNode.style.display = 'none'; }); }
-            // console.log(tierNode);
-            // console.log(tierNode.getAttribute('data-tier'), tier);
+            // we hide all sibling items first for upgradeable unique sets
+            if (upgradeable) {
+              tierNode.parentNode.childNodes.forEach((siblingNode) => { siblingNode.style.display = 'none'; });
+            }
+
             tierNode.style.display = 'block';
-            // tierNode.style.border = '1px solid red';
           } else {
             tierNode.style.display = 'none';
           }
         });
 
-        // make sure we have a tier on the node (maybe the item class on something that isn't an item)
+        // make sure we have a tier on the node (maybe the item class was on something that isn't an item)
       } else {
-        // ignore tier
+        // ignore tier - default behavior
         item.style.display = 'block';
       }
     };
@@ -64,18 +64,9 @@ function UniqueFilters(props) {
       });
     } else {
       itemContainers.forEach((item) => {
-        /* let tierNode = 0;
-        if (item.hasAttribute('data-tier')) {
-          tierNode = item.getAttribute('data-tier');
-        }
-        if (item.querySelector('.tier') && item.querySelector('.tier').hasAttribute('data-tier')) {
-          tierNode = item.querySelector('.tier').getAttribute('data-tier');
-        } */
-        // console.log('checking...', tier, tierNode, type);
-
         const itemCats = item.getAttribute('data-categories').split(',');
         const matches = [];
-        // console.log(itemCats, type);
+
         if (itemCats.some(isATypeMatch)) {
           handleTier(item);
         } else {
@@ -90,17 +81,6 @@ function UniqueFilters(props) {
 
   const setFilterTier = (e) => {
     // add a different class to only target tier level elements
-
-    /* const itemContainers = document.querySelectorAll('.tier');
-    const filterType = e.target.getAttribute('data-filtertier');
-    itemContainers.forEach((item) => {
-      // console.log(item.getAttribute('data-tier'), filterType);
-      if (item.getAttribute('data-tier') === filterType) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
-    }); */
     setTier(e.target.getAttribute('data-filtertier'));
   };
 
@@ -118,20 +98,6 @@ function UniqueFilters(props) {
     if (filterType === 'Nephalem Valors') { filterType = "Nephalem's Valour"; }
     setTier('default');
     setType(filterType);
-    /* const itemContainers = document.querySelectorAll('.item');
-    // TODO there seems to be a bug with unique necro shields that start at excep?
-    if (filterType === 'all') {
-      itemContainers.forEach((item) => { item.style.display = 'block'; });
-    } else {
-      itemContainers.forEach((item) => {
-        const itemCats = item.getAttribute('data-categories').split(',');
-        if (itemCats.includes(filterType)) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    } */
   };
 
 

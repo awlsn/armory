@@ -6,11 +6,13 @@ import Footer from './Footer';
 const Layout = ({ children }) => {
   const updateNav = () => {
     if (document.documentElement.scrollTop >= 400) {
-      document.querySelector('#floating-nav-content').style.display = 'block';
+      document.querySelector('#floating-nav-content').classList.remove('slideup');
+      document.querySelector('#floating-nav-content').classList.add('slidedown');
     }
 
     if (document.documentElement.scrollTop < 400) {
-      document.querySelector('#floating-nav-content').style.display = 'none';
+      document.querySelector('#floating-nav-content').classList.remove('slidedown');
+      document.querySelector('#floating-nav-content').classList.add('slideup');
     }
   };
 
