@@ -29,7 +29,6 @@ function AffixFilters(props) {
     } else {
       itemContainers.forEach((item) => {
         const itemCats = item.getAttribute('data-categories').split(',');
-        const matches = [];
 
         if (itemCats.some(isATypeMatch)) {
           item.style.display = 'table-row';
@@ -65,19 +64,19 @@ function AffixFilters(props) {
   affixItems = affixItems.map(item => <FilterLink key={item} itemCatName={item} clickFunction={setFilterType} />);
 
   return (
-        <>
-            <div id="armorySubNav">
-                Affixes: <button type="button" data-filter="all" onClick={setFilterType}>[Show All]</button>
-                <br />
-                By Type: <ul style={{ display: 'inline', paddingLeft: '10px' }} key="type-filters">{affixTypes}</ul>
-                <br />
-                By Item: <ul style={{ display: 'inline', paddingLeft: '10px' }} key="type-filters">{affixItems}</ul>
-                <br />
-                By Rarity: <ul style={{ display: 'inline', paddingLeft: '10px' }} key="type-filters">{affixColors}</ul>
+    <>
+      <div id="armorySubNav">
+        Affixes: <button type="button" data-filter="all" onClick={setFilterType}>[Show All]</button>
+        <br />
+        By Type: <ul style={{ display: 'inline', paddingLeft: '10px' }} key="type-filters">{affixTypes}</ul>
+        <br />
+        By Item: <ul style={{ display: 'inline', paddingLeft: '10px' }} key="type-filters">{affixItems}</ul>
+        <br />
+        By Rarity: <ul style={{ display: 'inline', paddingLeft: '10px' }} key="type-filters">{affixColors}</ul>
 
-            </div>
-            <hr />
-        </>
+      </div>
+      <hr />
+    </>
   );
 }
 

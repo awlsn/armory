@@ -6,7 +6,10 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    /* 'gatsby-transformer-json',
+    /*
+    'gatsby-plugin-manifest',
+    'gatsby-plugin-offline',
+     'gatsby-transformer-json',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

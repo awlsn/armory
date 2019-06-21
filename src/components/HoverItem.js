@@ -7,22 +7,13 @@ const HoverItem = (props) => {
   const { item, type } = props;
 
   if (item) {
-    if (item.props) {
-      const propList = item.props.map((itemPropSet, i) => (
-        <span key={i} className="item-property">
-          <div className="no-wrap diablo_blue">{itemPropSet}</div>
-        </span>
-      ),
-      );
-    }
-
-
     let imgUrl = `/images/items/${item.imageFile}`;
 
     if (type === 'hardcoded') {
       imgUrl = `/images/${item.imageFile}`;
     }
 
+    // simple items do not have color details in their props, handle them separately
     if (type === 'simple') {
       imgUrl = `/images/${item.imageFile}`;
 
@@ -39,7 +30,7 @@ const HoverItem = (props) => {
         </>
       );
     }
-
+    // regular items have props in an array: color, prop text, color, prop text, etc.
     return (
       <>
         <a data-tip data-for={item.index}>

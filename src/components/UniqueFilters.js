@@ -60,7 +60,7 @@ function UniqueFilters(props) {
 
     if (type === 'all') {
       itemContainers.forEach((item) => {
-        item.style.display = 'block';
+        handleTier(item);
       });
     } else {
       itemContainers.forEach((item) => {

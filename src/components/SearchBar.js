@@ -1,131 +1,156 @@
-import React from 'react';
-
-class SearchBar extends React.Component {
-  render() {
-    const { masterItemList, setMatchedItemList } = this.props;
-
-    const doSearch = (e) => {
-      e.preventDefault();
-
-      const text = document.getElementById('searchText').value;
+import React, { useState, useEffect } from 'react';
 
 
-      // [...new Set(masterItemList.runewordItems)].forEach((item) => console.log(item.items));
+const SearchBar = (props) => {
+  const { masterItemList, setMatchedItemList, query } = props;
 
-      const matchedItemList = {};
-      matchedItemList.uniqueItems = findItems(masterItemList.uniqueItems, text);
-      matchedItemList.runewordItems = findItems(masterItemList.runewords, text);
-      matchedItemList.setItems = findSetItems(masterItemList.setItems, text);
-      matchedItemList.fullSetItems = findFullSetItems(masterItemList.setItems, text);
-      matchedItemList.augmentItems = findItems(masterItemList.augments, text);
-      matchedItemList.baseItems = findBaseItems(masterItemList.baseItems, text);
-      matchedItemList.charmComponents = findItems(masterItemList.charmComponents, text);
-      // matchedItemList.crafting = findBaseItems(masterItemList.crafting, text);
-      matchedItemList.affixes = findBaseItems(masterItemList.affixes, text);
-      setMatchedItemList(matchedItemList);
-    };
+  const [searchText, setSearchText] = useState(' ');
+  const [prevSearchText, setPrevSearchText] = useState(' ');
 
-    function findItems(items, searchText) {
-      searchText = searchText.toLowerCase();
 
-      const result = items.filter(item => item.props.some((prop) => {
-        const itemMod = prop[1].toLowerCase();
-
-        searchText = searchText.toLowerCase();
-        // parseWildCards(searchText);
-        // return parseWildCards(searchText).test(itemMod);
-        // return new RegExp(searchText).test(itemMod);
-        return poundToRegExp(searchText).test(itemMod) || wildcardToRegExp(searchText).test(itemMod);
-      }));
-
-      return result;
+  useEffect(() => {
+    if (document.getElementById('searchText').value === '') {
+      const querries = query.split('/');
+      if (querries[1] === 'search') {
+        const actualQuery = decodeURI(querries[2]);
+        setSearchText({ searchText: actualQuery });
+      }
     }
+    if (searchText.searchText !== prevSearchText.prevSearchText) {
+      doSearch();
+    }
+  });
 
 
-    function findBaseItems(items, searchText) {
-      searchText = searchText.toLowerCase();
+  // RegExp-escapes all characters in the given string.
+  function regExpEscape(s) {
+    return s.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
+  }
+  // Creates a RegExp from the given string, converting asterisks to .* expressions, and
+  // escaping all other characters.
+  function wildcardToRegExp(s) {
+    const parsedString = `^${s.split(/\*+/).map(regExpEscape).join('.*')}$`;
+    return new RegExp(parsedString);
+  }
+  function poundToRegExp(s) {
+    const parsedString = s.split(/#+/).map(regExpEscape).join('\\d+');
+    return new RegExp(parsedString);
+  }
 
-      const result = items.filter(item => item.props.some((prop) => {
+
+  function findItems(items) {
+    const text = searchText.searchText.toLowerCase();
+
+    const result = items.filter(item => item.props.some((prop) => {
+      const itemMod = prop[1].toLowerCase();
+
+      return poundToRegExp(text).test(itemMod) || wildcardToRegExp(text).test(itemMod);
+    }));
+
+    return result;
+  }
+
+
+  function findSimpleItems(items) {
+    const text = searchText.searchText.toLowerCase();
+
+    const result = items.filter(item => item.props.some((prop) => {
+      const itemMod = prop.toLowerCase();
+      return poundToRegExp(text).test(itemMod) || wildcardToRegExp(text).test(itemMod);
+    }));
+
+    return result;
+  }
+
+  function findFullSetItems(items) {
+    const text = searchText.searchText.toLowerCase();
+
+    const result = items.filter((item) => {
+      const fullPropResult = item.fullProps.some((prop) => {
         const itemMod = prop.toLowerCase();
-        return poundToRegExp(searchText).test(itemMod) || wildcardToRegExp(searchText).test(itemMod);
-      }));
-
-      return result;
-    }
-
-    function findFullSetItems(items, searchText) {
-      searchText = searchText.toLowerCase();
-
-      const result = items.filter((item) => {
-        const fullPropResult = item.fullProps.some((prop) => {
-          const itemMod = prop.toLowerCase();
-          return poundToRegExp(searchText).test(itemMod) || wildcardToRegExp(searchText).test(itemMod);
-        });
-
-        const partialSetResult = item.partialProps.some((prop) => {
-          const itemMod = prop.toLowerCase();
-          return poundToRegExp(searchText).test(itemMod) || wildcardToRegExp(searchText).test(itemMod);
-        });
-
-        return fullPropResult || partialSetResult;
+        return poundToRegExp(text).test(itemMod) || wildcardToRegExp(text).test(itemMod);
       });
 
-      return result;
-    }
+      const partialSetResult = item.partialProps.some((prop) => {
+        const itemMod = prop.toLowerCase();
+        return poundToRegExp(text).test(itemMod) || wildcardToRegExp(text).test(itemMod);
+      });
 
-    function findSetItems(items, searchText) {
-      searchText = searchText.toLowerCase();
-      // flatten set array - set items are stored in Set objects but I just want to search individual items for now
-      const setItems = items.map(set => set.items);
-      const allSetItems = setItems.concat.apply([], setItems);
+      return fullPropResult || partialSetResult;
+    });
 
-      const result = allSetItems.filter(item => item.props.some((prop) => {
-        const itemMod = prop[1].toLowerCase();
-        return poundToRegExp(searchText).test(itemMod) || wildcardToRegExp(searchText).test(itemMod);
-      }));
-
-      return result;
-    }
-
-
-    // via donmccurdy : https://gist.github.com/donmccurdy/6d073ce2c6f3951312dfa45da14a420f
-    // Creates a RegExp from the given string, converting asterisks to .* expressions, and escaping all other characters.
-    function wildcardToRegExp(s) {
-      const parsedString = `^${s.split(/\*+/).map(regExpEscape).join('.*')}$`;
-      // console.log(parsedString)
-      return new RegExp(parsedString);
-    }
-    // RegExp-escapes all characters in the given string.
-    function regExpEscape(s) {
-      return s.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
-    }
-    function poundToRegExp(s) {
-      const parsedString = s.split(/#+/).map(regExpEscape).join('\\d+');
-      // console.log(parsedString)
-      return new RegExp(parsedString);
-    }
-    // <label><input type="checkbox" /> Enable full regex</label>
-    return (
-      <div id="armorySubNav" className="row" style={{ marginBottom: '50px' }}>
-        <form className="itemSearchForm u-full-width" onSubmit={doSearch}>
-          <input id="searchText" className="itemSearch" placeholder="Search items by their properties" type="text" />
-          <button
-            type="submit"
-            style={{
-              marginLeft: '10px', border: '1px solid black', padding: '6px 10px', borderRadius: '4px', background: 'rgba(150, 150, 150, 0.3)',
-            }}
-          ><h6 style={{ margin: '0px' }}>Search</h6>
-          </button>
-          <p>
-            Search items by their properties: * are wildcards or # will match any number.
-          </p>
-
-        </form>
-
-
-      </div>
-    );
+    return result;
   }
-}
+
+  function findSetItems(items) {
+    const text = searchText.searchText.toLowerCase();
+    // flatten set array - set items are stored in Set objects but I just want to search individual items for now
+    const setItems = items.map(set => set.items);
+    const allSetItems = setItems.concat.apply([], setItems);
+
+    const result = allSetItems.filter(item => item.props.some((prop) => {
+      const itemMod = prop[1].toLowerCase();
+      return poundToRegExp(text).test(itemMod) || wildcardToRegExp(text).test(itemMod);
+    }));
+
+    return result;
+  }
+
+
+  const doSearch = () => {
+    // [...new Set(masterItemList.runewordItems)].forEach((item) => console.log(item.items));
+
+    const matchedItemList = {};
+    matchedItemList.uniqueItems = findItems(masterItemList.uniqueItems);
+    matchedItemList.runewordItems = findItems(masterItemList.runewords);
+    matchedItemList.augmentItems = findItems(masterItemList.augments);
+    matchedItemList.charmComponents = findItems(masterItemList.charmComponents);
+
+    matchedItemList.baseItems = findSimpleItems(masterItemList.baseItems);
+    // matchedItemList.crafting = findSimpleItems(masterItemList.crafting, text);
+    matchedItemList.affixes = findSimpleItems(masterItemList.affixes);
+
+    matchedItemList.setItems = findSetItems(masterItemList.setItems);
+    matchedItemList.fullSetItems = findFullSetItems(masterItemList.setItems);
+    setPrevSearchText({ prevSearchText: searchText.searchText });
+    setMatchedItemList(matchedItemList);
+  };
+
+  const submitForm = (e) => {
+    e.preventDefault();
+    const text = document.getElementById('searchText').value;
+    setSearchText({ searchText: text });
+    const stay = window.scrollY;
+    // window.location.hash = `#/search/${text}`;
+    window.history.pushState(null, null, `#/search/${text}`);
+    // console.log(searchText.searchText);
+  };
+
+
+  return (
+
+    <div id="armorySubNav" className="row" style={{ marginBottom: '50px' }}>
+      <form className="itemSearchForm u-full-width" onSubmit={submitForm}>
+        <input id="searchText" className="itemSearch" placeholder={searchText.searchText} type="text" />
+        <button
+          id="searchSubmit"
+          type="submit"
+          style={{
+            marginLeft: '10px', border: '1px solid black', padding: '6px 10px', borderRadius: '4px', background: 'rgba(150, 150, 150, 0.3)',
+          }}
+        ><h6 style={{ margin: '0px' }}>Search</h6>
+        </button>
+        <p>
+          Search items by their properties: * are wildcards or # will match any number.
+        </p>
+
+      </form>
+
+
+    </div>
+
+  );
+};
+
 
 export default SearchBar;

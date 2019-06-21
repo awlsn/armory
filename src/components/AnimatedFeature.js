@@ -27,7 +27,7 @@ const AnimatedFeature = (props) => {
             </style>
 
             <div className="iframe-container">
-                <iframe src={url} frameBorder="0" scrolling="no" />
+                <iframe title={caption} src={url} frameBorder="0" scrolling="no" />
             </div>
             <span className="caption">{caption}</span>
         </>

@@ -12,7 +12,7 @@ const Header = () => (
         }}
       />
     </div>
-    <div className="row" style={{ position: 'relative', left: '-32px' }}>
+    <div className="row">
       <div className="u-full-width" id="banner" />
     </div>
 

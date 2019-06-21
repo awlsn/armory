@@ -12,37 +12,65 @@ import UniqueItem from '../components/UniqueItem';
 import Set from '../components/Set';
 import SimpleItem from '../components/SimpleItem';
 
-// search should be handled by the url parameter so that we can forward to it from a searchbox component?
-// search results are conditionally rendered based on the outcome of the search function(s)
-// query -> search -> output
+import BaseFilter from '../components/BaseFilter';
+
+// need better support for hash loads
 
 const ArmorySearchPage = (props) => {
   const { location, pageContext } = props;
-  const query = location.hash.slice(1, location.hash.length);
+  
+
 
   const [matchItemList, setMatchedItemList] = useState('[]');
 
-  console.log(query);
-  console.log(pageContext);
+  const [armoryPage, setArmoryPage] = useState(' ');
+
+  const query = location.hash.slice(1, location.hash.length);
+  if (query !== '' && !armoryPage.armoryPage) {
+    setArmoryPage({ armoryPage: query });
+  }
+  if (query === '' && !armoryPage.armoryPage) {
+    setArmoryPage({ armoryPage: ' ' });
+  }
+  
 
   // let UniqueOutput = <span />;
 
   useEffect(() => {
-    // console.log(matchItemList);
-    if (matchItemList.uniqueItems) {
-      // UniqueOutput = matchItemList.uniqueItems.map(item => <UniqueItem item={item} />);
-    }
+    
+    
   });
 
   // setItems, runes, gems, affixes,
   return (
     <Layout location={location}>
       <SEO title="Diablo 2 Resurgence mod - Item Armory" keywords={['Diablo II', 'Resurgence', 'Armory']} />
-      <ArmoryHeader />
-      <SearchBar masterItemList={pageContext} setMatchedItemList={setMatchedItemList} query={query} />
-      <Results items={matchItemList} />
+      <ArmoryHeader setArmoryPage={setArmoryPage} />
+      <ArmoryContent page={query} pageContext={pageContext} matchItemList={matchItemList} setMatchedItemList={setMatchedItemList} />
 
     </Layout>
+  );
+};
+
+const ArmoryContent = (props) => {
+  const { page, pageContext } = props;
+  const { matchItemList, setMatchedItemList } = props;
+  if (page === '/bases') {
+    const itemList = pageContext.baseItems.map(item => <BaseItem key={item.index} item={item} />);
+    return (
+      <>
+        <BaseFilter itemFilters={pageContext.itemFilters} />
+        <ul style={{ padding: 0 }}>
+          {itemList}
+        </ul>
+      </>
+    );
+  }
+  return (
+    <>
+      <SearchBar query={page} masterItemList={pageContext} setMatchedItemList={setMatchedItemList} />
+      <Results items={matchItemList} />
+    </>
   );
 };
 
