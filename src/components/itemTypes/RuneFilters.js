@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import FilterLink from './FilterLink';
+import FilterLink from '../FilterLink';
 
 function SetFilters(props) {
   const { items } = props;
@@ -14,7 +14,7 @@ function SetFilters(props) {
       });
     } else {
       itemContainers.forEach((item) => {
-        const itemName = item.getAttribute('data-type');
+        const itemName = item.getAttribute('data-name');
         const matches = [];
         // console.log(itemCats, type);
         if (itemName.trim().toLowerCase() === type.trim().toLowerCase()) {
@@ -27,25 +27,28 @@ function SetFilters(props) {
   });
 
   const setFilterType = (e) => {
-    let filterType = e.target.getAttribute('data-filter');
-    if (filterType === 'Primary') { filterType = 'Primary Charm Component'; }
-    if (filterType === 'Secondary') { filterType = 'Secondary Charm Component'; }
-    if (filterType === 'Tertiary') { filterType = 'Tertiary Charm Component'; }
+    const filterType = e.target.getAttribute('data-filter');
     setType(filterType);
   };
 
+  // make an array of all unique item types referenced by the runewords
+
+  let itemNames = [];
+
+  items.forEach((item) => {
+    itemNames.push(item.name);
+  });
+  itemNames.sort();
+
+  itemNames = itemNames.map(name => <FilterLink key={name} itemCatName={name} clickFunction={setFilterType} />);
 
   // itemTypeFilters = itemTypeFilters.map((list, i) => <ul key={i}>{list}</ul>);
   return (
         <>
             <div id="armorySubNav">
-                Charm Components: <button type="button" data-filter="all" onClick={setFilterType}> [Show All]</button>
+                Runes: <button type="button" data-filter="all" onClick={setFilterType}> [Show All]</button>
                 <br />
-                By Slot: <ul style={{ display: 'inline', paddingLeft: '10px' }} key="type-filters">
-                    <FilterLink key="Primary" itemCatName="Primary" clickFunction={setFilterType} />
-                    <FilterLink key="Secondary" itemCatName="Secondary" clickFunction={setFilterType} />
-                    <FilterLink key="Tertiary" itemCatName="Tertiary" clickFunction={setFilterType} />
-                         </ul>
+                By Name: <ul style={{ display: 'inline', paddingLeft: '10px' }} key="type-filters">{itemNames}</ul>
             </div>
             <hr />
         </>

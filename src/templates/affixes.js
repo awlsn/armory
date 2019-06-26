@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Affix from '../components/Affix';
-import AffixFilters from '../components/AffixFilters';
+import Affix from '../components/itemTypes/Affix';
+import AffixFilters from '../components/itemTypes/AffixFilters';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import ArmoryHeader from '../components/ArmoryHeader';

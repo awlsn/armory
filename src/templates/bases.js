@@ -1,7 +1,7 @@
 import React from 'react';
 
-import BaseItem from '../components/BaseItem';
-import BaseFilter from '../components/BaseFilter';
+import BaseItem from '../components/itemTypes/BaseItem';
+import BaseFilter from '../components/itemTypes/BaseFilter';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import ArmoryHeader from '../components/ArmoryHeader';

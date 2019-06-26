@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import FilterLink from './FilterLink';
+import FilterLink from '../FilterLink';
 
 function RunewordFilters(props) {
   const { runewords } = props;

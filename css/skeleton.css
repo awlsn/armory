@@ -670,7 +670,12 @@ ul#armoryMainNav li, div#armorySubNav ul li {
     display: inline-block;
 }
 
-ul#armoryMainNav li a {
+div#armorySubNav label {
+  display: inline-block;
+  padding: 10px 30px;
+}
+
+ul#armoryMainNav li a, ul#armoryMainNav li label {
     padding: 10px;
 }
 

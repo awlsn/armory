@@ -1,7 +1,7 @@
 import React from 'react';
 
-import CharmComponent from '../components/SimpleItem';
-import CharmComponentFilters from '../components/CharmComponentFilters';
+import CharmComponent from '../components/itemTypes/SimpleItem';
+import CharmComponentFilters from '../components/itemTypes/CharmComponentFilters';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import ArmoryHeader from '../components/ArmoryHeader';

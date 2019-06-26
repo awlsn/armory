@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Runeword from '../components/Runeword';
-import RunewordFilter from '../components/RunewordFilters';
+import Runeword from '../components/itemTypes/Runeword';
+import RunewordFilter from '../components/itemTypes/RunewordFilters';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import ArmoryHeader from '../components/ArmoryHeader';

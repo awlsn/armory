@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-import UniqueItem from './UniqueItem';
-import UpgradeableUniqueItem from './UpgradeableUniqueItem';
+import UniqueItem from './itemTypes/UniqueItem';
+import UpgradeableUniqueItem from './itemTypes/UpgradeableUniqueItem';
 
 const ItemList = (props) => {
   const { items } = props;

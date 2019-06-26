@@ -1,6 +1,7 @@
 const itemFilters = require('./data/armory.json');
 const baseItems = require('./data/baseItems.json');
 const runewords = require('./data/runewords.json');
+const crafting = require('./data/crafting.json');
 const uniqueItems = require('./data/uniqueItems.json');
 const setItems = require('./data/setItems.json');
 const charmComponents = require('./data/charmComponents.json');
@@ -19,14 +20,14 @@ exports.createPages = async ({ actions: { createPage } }) => {
     path: '/search/',
     component: require.resolve('./src/templates/search.js'),
     context: {
-      baseItems, runewords, uniqueItems, setItems, charmComponents, runes, gems, augments, affixes,
+      baseItems, runewords, crafting, uniqueItems, setItems, charmComponents, runes, gems, augments, affixes,
     },
   });
   createPage({
     path: '/armory/',
     component: require.resolve('./src/templates/search.js'),
     context: {
-      baseItems, runewords, uniqueItems, setItems, charmComponents, runes, gems, augments, affixes, itemFilters,
+      baseItems, runewords, crafting, uniqueItems, setItems, charmComponents, runes, gems, augments, affixes, itemFilters,
     },
   });
   createPage({

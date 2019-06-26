@@ -2,11 +2,11 @@
 
 import React from 'react';
 import Nav from '../components/Nav';
-import AnimatedFeature from '../components/AnimatedFeature';
-import HoverItem from '../components/HoverItem';
+import AnimatedFeature from '../components/home/AnimatedFeature';
+import HoverItem from '../components/home/HoverItem';
+import ValorTable from '../components/home/ValorTable';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
-import ValorTable from '../components/ValorTable';
 
 export default ({ pageContext }) => {
   // console.log(pageContext.uniqueItems)
@@ -32,17 +32,9 @@ export default ({ pageContext }) => {
 
   function transmute(e) {
     e.preventDefault();
-    console.log('transmuting');
     document.querySelector('#crafting_cube_ingredients').style.display = 'none';
     document.querySelector('#crafting_cube_results').style.display = 'block';
   }
-
-
-  function notAClick(e) {
-    e.preventDefault();
-  }
-
-  console.log(findCharmCompByName('Garnet Glyph'));
 
   return (
     <Layout>
@@ -310,7 +302,7 @@ export default ({ pageContext }) => {
               glyphs and ankhs providing an array of properties to empower your character.
             <br />
               <br />
-              To get an idea of how this process works, click "Transmute" in the cube to the right and watch the Charm gain a stat.
+              To get an idea of how this process works, click &quot;Transmute&quot; in the cube to the right and watch the Charm gain a stat.
             </p>
 
             <div className="item_hover">

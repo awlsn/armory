@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Set from '../components/Set';
-import SetFilters from '../components/SetFilter';
+import Set from '../components/itemTypes/Set';
+import SetFilters from '../components/itemTypes/SetFilter';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import ArmoryHeader from '../components/ArmoryHeader';

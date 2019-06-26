@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Rune from '../components/BonusItem';
-import RuneFilters from '../components/RuneFilters';
+import Rune from '../components/itemTypes/BonusItem';
+import RuneFilters from '../components/itemTypes/RuneFilters';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import ArmoryHeader from '../components/ArmoryHeader';

@@ -1,10 +1,10 @@
 import React from 'react';
 import Loadable from 'react-loadable';
 
-import UniqueItem from '../components/UniqueItem';
-import UpgradeableUniqueItem from '../components/UpgradeableUniqueItem';
+import UniqueItem from '../components/itemTypes/UniqueItem';
+import UpgradeableUniqueItem from '../components/itemTypes/UpgradeableUniqueItem';
+import UniqueFilters from '../components/itemTypes/UniqueFilters';
 
-import UniqueFilters from '../components/UniqueFilters';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import ArmoryHeader from '../components/ArmoryHeader';

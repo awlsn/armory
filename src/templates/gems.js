@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Gem from '../components/BonusItem';
-import GemFilters from '../components/GemFilters';
+import Gem from '../components/itemTypes/BonusItem';
+import GemFilters from '../components/itemTypes/GemFilters';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import ArmoryHeader from '../components/ArmoryHeader';

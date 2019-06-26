@@ -22,7 +22,7 @@ const SearchBar = (props) => {
   });
 
 
-  // RegExp-escapes all characters in the given string.
+  // RegExp-escapes all special characters in the given string.
   function regExpEscape(s) {
     return s.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
   }
@@ -105,9 +105,8 @@ const SearchBar = (props) => {
     matchedItemList.runewordItems = findItems(masterItemList.runewords);
     matchedItemList.augmentItems = findItems(masterItemList.augments);
     matchedItemList.charmComponents = findItems(masterItemList.charmComponents);
-
     matchedItemList.baseItems = findSimpleItems(masterItemList.baseItems);
-    // matchedItemList.crafting = findSimpleItems(masterItemList.crafting, text);
+    matchedItemList.crafting = findSimpleItems(masterItemList.crafting);
     matchedItemList.affixes = findSimpleItems(masterItemList.affixes);
 
     matchedItemList.setItems = findSetItems(masterItemList.setItems);
@@ -120,7 +119,7 @@ const SearchBar = (props) => {
     e.preventDefault();
     const text = document.getElementById('searchText').value;
     setSearchText({ searchText: text });
-    const stay = window.scrollY;
+    // const stay = window.scrollY;
     // window.location.hash = `#/search/${text}`;
     window.history.pushState(null, null, `#/search/${text}`);
     // console.log(searchText.searchText);

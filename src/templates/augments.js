@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Augment from '../components/SimpleItem';
-import AugmentFilters from '../components/GemFilters';
+import Augment from '../components/itemTypes/SimpleItem';
+import AugmentFilters from '../components/itemTypes/GemFilters';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import ArmoryHeader from '../components/ArmoryHeader';

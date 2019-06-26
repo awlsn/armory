@@ -1,5 +1,4 @@
 import React from 'react';
-import { set } from 'idb-keyval';
 import ItemProperties from './ItemProperties';
 
 function Set(props) {
@@ -8,7 +7,7 @@ function Set(props) {
   const fullProps = item.fullProps.map(prop => <div>{prop}</div>);
   const setItems = item.items.map(setItem => (
         <>
-            <div className="set-item row" id={setItem.index}>
+            <div key={setItem.index + setItem.code} className="set-item row" id={setItem.index}>
                 <div className="item-left four columns">
                     <span className="item-graphic ">
                         <img src={`/static/images/items/${setItem.imageFile}`} alt="" />
@@ -30,7 +29,7 @@ function Set(props) {
             <span className="item-property block center bold">Partial Set Bonus</span>
             <div className="diablo_green center">{partialProps}</div>
             <span className="item-property block center bold">Complete Set Bonus</span>
-            <div className="diablo_gold center">{fullProps}</div>
+            <div key={`${item.index}fullProps`} className="diablo_gold center">{fullProps}</div>
             <hr />
             {setItems}
 
