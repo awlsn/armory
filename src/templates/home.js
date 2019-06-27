@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Nav from '../components/Nav';
-import AnimatedFeature from '../components/home/AnimatedFeature';
 import HoverItem from '../components/home/HoverItem';
 import ValorTable from '../components/home/ValorTable';
 import Layout from '../components/Layout';
@@ -61,10 +60,18 @@ export default ({ pageContext }) => {
 
         <div className="row">
           <div className="six columns">
-
-            <AnimatedFeature url="//gifs.com/embed/diablo-2-resurgence-launch-trailer-mZxMzr" caption="Necromancers get additional bone spears with points into Energy" />
+            <video muted="true" autoPlay="true" loop="true">
+              <source src="/videos/nec.mp4" type="video/mp4" />
+              <a href="/videos/nec.mp4" alt="Necromancers get additional bone spears with points into Energy">Your browser doesn't support embedded videos, click here to download.</a>
+            </video>
+            <span className="caption">Necromancers get additional bone spears with points into Energy</span>
             <br />
-            <AnimatedFeature url="//gifs.com/embed/diablo-2-resurgence-launch-trailer-rkDMww" caption="Paladin’s Vengeance has been reworked into an AoE melee attack that converts some portion of physical damage to magic" />
+
+            <video muted="true" autoPlay="true" loop="true">
+              <source src="/videos/pal.mp4" type="video/mp4" />
+              <a href="/videos/pal.mp4" alt="Paladin’s Vengeance has been reworked into an AoE melee attack that converts some portion of physical damage to magic">Your browser doesn't support embedded videos, click here to download.</a>
+            </video>
+            <span className="caption">Paladin’s Vengeance has been reworked into an AoE melee attack that converts some portion of physical damage to magic</span>
 
           </div>
           <div className="six columns justify">
@@ -87,7 +94,11 @@ export default ({ pageContext }) => {
             </p>
           </div>
           <div className="six columns">
-            <AnimatedFeature url="//gifs.com/embed/diablo-2-resurgence-launch-trailer-Z6MpGE" caption="New items such as this cold/fire multishot bow enable brand new late-game builds for more than just the obvious classes" />
+            <video muted="true" autoPlay="true" loop="true">
+              <source src="/videos/sor.mp4" type="video/mp4" />
+              <a href="/videos/sor.mp4" alt="New items such as this cold/fire multishot bow enable brand new late-game builds for more than just the obvious classes">Your browser doesn't support embedded videos, click here to download.</a>
+            </video>
+            <span className="caption">New items such as this cold/fire multishot bow enable brand new late-game builds for more than just the obvious classes</span>
           </div>
         </div>
         <div className="row">
@@ -203,10 +214,19 @@ export default ({ pageContext }) => {
 
             <div className="row">
               <div className="six columns">
-                <AnimatedFeature url="//gifs.com/embed/diablo-2-resurgence-launch-trailer-zpOxDY" caption="Some monsters pose even more of a danger after their death, beware!" />
+                <video muted="true" autoPlay="true" loop="true">
+                  <source src="/videos/zon.mp4" type="video/mp4" />
+                  <a href="/videos/zon.mp4" alt="Some monsters pose even more of a danger after their death, beware!">Your browser doesn't support embedded videos, click here to download.</a>
+                </video>
+                <span className="caption">Some monsters pose even more of a danger after their death, beware!</span>
+
               </div>
               <div className="six columns">
-                <AnimatedFeature url="//gifs.com/embed/diablo-2-resurgence-launch-trailer-W6JjrJ" caption="A Frenzy Barb making his way through The Killing Fields" />
+                <video muted="true" autoPlay="true" loop="true">
+                  <source src="/videos/bar.mp4" type="video/mp4" />
+                  <a href="/videos/bar.mp4" alt="A Frenzy Barb making his way through The Killing Fields">Your browser doesn't support embedded videos, click here to download.</a>
+                </video>
+                <span className="caption">A Frenzy Barb making his way through The Killing Fields</span>
               </div>
             </div>
           </div>
